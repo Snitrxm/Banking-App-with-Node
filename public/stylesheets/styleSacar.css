@@ -47,48 +47,63 @@ header{
     }
 }
 
-body{
-    background-color: #fff;
-}
-
 main{
     display: flex;
     justify-content: center;
 }
 
 .container{
-    background-color: #fff;
-    height: 100px;
-    width: 20rem;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 20px;
-}
-
-.buttonsOfTransitions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 15px;
 }
 
-#sacar{
+input{
+    border: none;
+    border-bottom: 1px solid #000;
+    font-size: 18px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#confirmar{
     background-color: #FF7A00;
     border: none;
-    text-decoration: none;
-    color: #000;
     padding: 5px;
     font-size: 18px;
+    text-decoration: none;
+    margin-right: 10px;
+    color: #000;
     transition: .2s;
 }
 
-#depositar{
+#cancelar{
     background-color: #FF7A00;
     border: none;
-    text-decoration: none;
-    color: #000;
     padding: 5px;
     font-size: 18px;
+    text-decoration: none;
+    margin-right: 10px;
+    color: #000;
     transition: .2s;
 }
 
-#sacar:hover, #depositar:hover{
+#confirmar:hover ,#cancelar:hover{
     color: #fff;
 }
+
+button{
+    all: unset;
+}
+
+
+

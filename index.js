@@ -39,14 +39,15 @@ app.get('/abrir', (req, res) => {
 
 
 app.post('/abrir', async (req, res) => {            // open a user account
-    let { name, age, inicialValue } = req.body;
+    let { name, age, balance } = req.body;
 
-    let user = User({name, age, inicialValue})
+    let user = new User({name, age, balance});
+
     try{
         await user.save();
         res.redirect(`/main/${user._id}`);
     } catch(error){
-        res.status(422).send(error);
+        res.status(500).send(error);
     }
 })
 
@@ -55,6 +56,48 @@ app.get('/main/:id', async (req, res) => {
     const user = await User.findById(req.params.id);
 
     res.render('pages/mainPage', {user:user});
+})
+
+
+app.get('/sacar/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.status(200).render('pages/sacar', {user:user});
+})
+
+app.post('/sacar/:id', async (req, res) => {
+    let { amount } = req.body;
+    
+
+    const user = await User.findOneAndUpdate({_id:req.params.id}, {$inc:{balance:-amount}}, {new: true});
+    try {
+        if(amount <= 0){
+            res.status(400).send('Amount must be greater than 0');
+            setInterval(() => {
+                res.redirect(`/sacar/${req.params.id}`);
+            }, 2000);
+        }
+        await user.save()
+        res.status(200).redirect(`/main/${user._id}`);
+    } catch(error){
+        res.status(500).send(error)
+    }
+})
+
+
+app.get('/depositar/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.status(200).render('pages/depositar', {user:user});
+})
+
+app.post('/depositar/:id', async (req, res) => {
+    let { amount } = req.body;
+    const user = await User.findOneAndUpdate({_id:req.params.id}, {$inc:{balance:+amount}}, {new: true});
+    try{
+        await user.save();
+        res.status(200).redirect(`/main/${user._id}`);
+    } catch(error){
+        res.status(500).send(error)
+    }
 })
 
 

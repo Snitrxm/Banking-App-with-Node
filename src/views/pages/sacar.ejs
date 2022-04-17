@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/styleSacar.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <h1 class="title">INTER</h1>
+            <a href="/main/<%= user._id%>" id="name"><%= user.name %></a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <form action="/sacar/<%= user._id %>" method="post">
+                <input type="number" placeholder="Quanto deseja retirar" name="amount">
+                <div class="buttons">
+                    <a href="" id="confirmar"><button type="submit">Confirmar</button></a>
+                    <a href="/main/<%= user._id%>" id="cancelar">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

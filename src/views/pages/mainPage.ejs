@@ -11,8 +11,17 @@
     <header>
         <div class="nav">
             <h1 class="title">INTER</h1>
-            <a href="" class=""><%= user.name %></a>
+            <a href="" id="name"><%= user.name %></a>
         </div>
     </header>
+    <main>
+        <div class="container">
+            <h2>Saldo: <span><%= user.balance %></span></h2>
+            <div class="buttonsOfTransitions">
+                <a href="/sacar/<%= user._id%>" id="sacar">Sacar</a>
+                <a href="/depositar/<%= user._id %>" id="depositar">Depositar</a>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

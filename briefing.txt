@@ -1,2 +1,7 @@
-Criar pagina Index : done
-Criar pagina de Cadastro
+Criar pagina Index : DONE
+Criar pagina de Cadastro: DONE
+
+
+
+WHAT TO DO:
+1. Verificar se o amount na rota de sacar eh maior que zero, mas eu nao sei fazer :(
