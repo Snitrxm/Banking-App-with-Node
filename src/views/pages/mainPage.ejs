@@ -21,6 +21,9 @@
                 <a href="/sacar/<%= user._id%>" id="sacar">Sacar</a>
                 <a href="/depositar/<%= user._id %>" id="depositar">Depositar</a>
             </div>
+            <div class="deleteButton">
+                <a href="/delete/<%= user._id %>?_method=delete" id="deletar">Deletar a conta</a>
+            </div>
         </div>
     </main>
 </body>

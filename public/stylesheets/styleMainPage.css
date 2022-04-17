@@ -92,3 +92,23 @@ main{
 #sacar:hover, #depositar:hover{
     color: #fff;
 }
+
+.deleteButton{
+    margin-top: 20px;
+}
+
+#deletar{
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    transition: .2s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#deletar:hover{
+    background-color:rgb(88, 3, 3);
+}
